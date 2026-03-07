@@ -9,7 +9,7 @@ const kafka = new Kafka({
         ca: [fs.readFileSync('./kafka_secrets/ca.pem', 'utf-8')]
     },
     sasl: {
-        mechanism: process.env.KAFKA_MECHANISM,
+        mechanism: process.env.KAFKA_MECHANISM || "SCRAM-SHA-256",
         username: process.env.KAFKA_USERNAME,
         password: process.env.KAFKA_PASSWORD,
     },
